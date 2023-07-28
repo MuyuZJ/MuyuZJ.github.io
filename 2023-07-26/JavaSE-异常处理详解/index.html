@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Muyu">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://muyuzj.github.io/2023-07-26/javase-异常处理详解/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="什么是异常异常(Exception)是程序运行中遇到的意外情况 异常影响正常的程序执行流程(逻辑) 我们需要及时处理异常 不至于因异常而让程序崩溃 程序测试就时为了避免程序运行可能出现的异常情况 常见的异常有:  循环调用异常 会造成栈溢出错误 StackOverflowError 数学异常 ArithmeticException &#x2F; by zero (除数为0)  1234567891">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSE 异常处理详解">
+<meta property="og:url" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Muyu&#39;s Home">
+<meta property="og:description" content="什么是异常异常(Exception)是程序运行中遇到的意外情况 异常影响正常的程序执行流程(逻辑) 我们需要及时处理异常 不至于因异常而让程序崩溃 程序测试就时为了避免程序运行可能出现的异常情况 常见的异常有:  循环调用异常 会造成栈溢出错误 StackOverflowError 数学异常 ArithmeticException &#x2F; by zero (除数为0)  1234567891">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726111308775.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726111401796.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726112216076.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726135416515.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141135518.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141250291.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141530399.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141544839.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141627831.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726142213838.png">
+<meta property="article:published_time" content="2023-07-26T10:11:17.000Z">
+<meta property="article:modified_time" content="2023-07-28T12:41:30.942Z">
+<meta property="article:author" content="沐雨">
+<meta property="article:tag" content="JavaSE">
+<meta property="article:tag" content="KuangStudy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://muyuzj.github.io/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726111308775.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/avatar_circle.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar_circle.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/avatar_circle.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            JavaSE 异常处理详解 -
+        
+        Muyu Blogs
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"muyuzj.github.io","root":"/","language":"zh-CN"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"../images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"朝雾夕霞 沐雨听风","subtitle":{"text":["为世间美好而战.","Less is more."],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":200,"backing_speed":100,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/MuyuZJ?tab=repositories","zhihu":"https://www.zhihu.com/people/muyu-muyu"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.2.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/07/21 07:00:00"};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Muyu Blogs
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                
+                  <h1 class="article-title-regular">JavaSE 异常处理详解</h1>
+                
+              </div>
+              
+                     
+            
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Muyu</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-07-26 18:11:17</span>
+        <span class="mobile">2023-07-26 18:11:17</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-07-28 20:41:30</span>
+            <span class="mobile">2023-07-28 20:41:30</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaSE/">JavaSE</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/KuangStudy/">KuangStudy</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="什么是异常"><a href="#什么是异常" class="headerlink" title="什么是异常"></a>什么是异常</h2><p>异常(Exception)是程序运行中遇到的意外情况</p>
+<p>异常影响正常的程序执行流程(逻辑) 我们需要及时处理异常 不至于因异常而让程序崩溃</p>
+<p>程序测试就时为了避免程序运行可能出现的异常情况</p>
+<p>常见的异常有:</p>
+<ul>
+<li>循环调用异常 会造成栈溢出错误 StackOverflowError</li>
+<li>数学异常 ArithmeticException &#x2F; by zero (除数为0)</li>
+</ul>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="comment">// Java异常机制</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Demo01</span>().b();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建两个方法 让他们循环调用 肯定会发生异常 但是写代码时也许不会注意(因为没有错误)</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">a</span><span class="params">()</span> &#123;</span><br><span class="line">        b();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">b</span><span class="params">()</span> &#123;</span><br><span class="line">        a();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726111308775.png"
+                      alt="image-20230726111308775"
+                ></p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    System.out.println(<span class="number">1</span> / <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726111401796.png"
+                      alt="image-20230726111401796"
+                ></p>
+<h2 id="异常体系结构"><a href="#异常体系结构" class="headerlink" title="异常体系结构"></a>异常体系结构</h2><p>Java可抛出(Throwable)类主要分为错误<code>Error</code>和异常<code>Exception</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726112216076.png"
+                      alt="image-20230726112216076"
+                ></p>
+<p>异常和错误(Exception and Error)</p>
+<ul>
+<li>异常通常是因为程序本身导致的问题 可以阅读程序预见 和程序控制有关</li>
+<li>错误不是由程序代码出错导致的问题 可能由JVM或者IO导致 与程序员无关 和环境有关</li>
+<li>发生异常通常可以被程序处理 而且尽量在程序中处理异常</li>
+<li>发生错误通常无法用程序预见,控制和处理 是灾难性的 JVM通常会选择终止线程</li>
+<li>都直接&#x2F;间接继承自Throwable类</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726135416515.png"
+                      alt="image-20230726135416515"
+                ></p>
+<p>其中最难预见的是RuntimeException 因为它发生在程序运行时 无法提前检查</p>
+<h2 id="Java异常处理机制"><a href="#Java异常处理机制" class="headerlink" title="Java异常处理机制"></a>Java异常处理机制</h2><p>异常并不可怕 只需要程序处理得当即可化解 需要根据程序的代码和业务逻辑决定</p>
+<p>对于不确定是否会出错的代码尽量加上<code>try-catch</code>语句 对于会造成资源浪费情况 请在finally中写关闭语句</p>
+<p>语句 主要解决方法:</p>
+<ul>
+<li>捕获异常 进行处理 (try-catch语句)</li>
+<li>抛出异常</li>
+</ul>
+<p>以下是捕获除数为0的数学异常的代码</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line">    <span class="comment">// 异常处理</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>, b = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(a / b);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException arithmeticException) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;除数为0&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;finally语句被执行了...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>运行程序 正常执行 因为异常已经被捕获并处理了</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141135518.png"
+                      alt="image-20230726141135518"
+                ></p>
+<p>若方法内部不想处理 可以向上抛出异常 让调用该方法的方法进行处理</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line">    <span class="comment">// 异常处理</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(getResult());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;发生了算术异常...&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;发生原因: &quot;</span> + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">getResult</span><span class="params">()</span> <span class="keyword">throws</span> ArithmeticException &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> / <span class="number">0</span>;       <span class="comment">// 发生异常 java.lang.ArithmeticException: / by zero</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>程序仍正常退出 main函数接受到了异常并已处理</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141250291.png"
+                      alt="image-20230726141250291"
+                ></p>
+<p>当捕获异常时 需要先小后大 层层递进 (否则会一下子捕获最大范围的异常)</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    System.out.println(getResult());</span><br><span class="line">&#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;发生了算术异常...&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;发生原因: &quot;</span> + e.getMessage());</span><br><span class="line">&#125; <span class="keyword">catch</span> (RuntimeException e)&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (Throwable throwable)&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>异常捕获后可以打印其信息</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141530399.png"
+                      alt="image-20230726141530399"
+                ></p>
+<p>也可以手动退出程序</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141544839.png"
+                      alt="image-20230726141544839"
+                ></p>
+<p>当预见异常时 可以手动抛出异常</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">double</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1.5</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 已经预见错误</span></span><br><span class="line">        <span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 手动创建异常并抛出</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ArithmeticException</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(a / b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726141627831.png"
+                      alt="image-20230726141627831"
+                ></p>
+<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><p>Java内置的异常类已经可以应对绝大多数情况 同时Java允许自定义异常 需要继承<code>Exception</code>类</p>
+<p>步骤:</p>
+<ul>
+<li>创建自定义异常类 (继承Exception类)</li>
+<li>通过throw关键字抛出异常</li>
+<li>使用<code>try-catch语句</code>处理异常或向上抛出</li>
+<li>处理异常</li>
+</ul>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MuyuException</span> <span class="keyword">extends</span> <span class="title class_">Exception</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 例: 接收数字 如果大于10则抛出异常</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MuyuException</span><span class="params">()</span> &#123;</span><br><span class="line">        num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MuyuException</span><span class="params">(<span class="type">int</span> a)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.num = a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印输出函数toString</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;MuyuException&#123;&quot;</span> + <span class="string">&quot;num=&quot;</span> + num + <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            test();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (MuyuException e) &#123;</span><br><span class="line">            <span class="comment">// throw new RuntimeException(e);</span></span><br><span class="line">            e.printStackTrace();        <span class="comment">// 打印异常日志</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> <span class="keyword">throws</span> MuyuException &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">11</span>;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">MuyuException</span>(a);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-26/JavaSE-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%AF%A6%E8%A7%A3/image-20230726142213838.png"
+                      alt="image-20230726142213838"
+                ></p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> JavaSE 异常处理详解</li>
+        <li><strong>作者:</strong> Muyu</li>
+        <li><strong>创建于:</strong> 2023-07-26 18:11:17</li>
+        
+            <li>
+                <strong>更新于:</strong> 2023-07-28 20:41:30
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://muyuzj.github.io/2023-07-26/JavaSE-异常处理详解/
+        </li>
+        <li>
+            <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JavaSE/">#JavaSE</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/KuangStudy/">#KuangStudy</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023-07-27/JavaSE-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">JavaSE 多线程详解</span>
+                                    <span class="post-nav-item">上一篇</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023-07-25/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">JavaSE 面向对象编程</span>
+                                    <span class="post-nav-item">下一篇</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">JavaSE 异常处理详解</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%82%E5%B8%B8"><span class="nav-text">什么是异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">异常体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="nav-text">Java异常处理机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="nav-text">自定义异常</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+                <span>2023</span>
+                -
+            
+            2023
+            &nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a
+                    href="/">Muyu</a>
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"
+                                                        class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"
+                                                        class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">
+                由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
+            <br>
+            
+            <span class="theme-version-container">
+                主题&nbsp;
+                <a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.2.2
+                </a>
+                
+            </span>
+        </div>
+        
+        
+        
+            <div>
+                博客已运行
+                <span class="odometer" id="runtime_days">
+
+                 </span>
+
+                天
+                <span class="odometer" id="runtime_hours"></span>
+                小时
+                <span class="odometer" id="runtime_minutes"></span>
+                分钟 <span class="odometer" id="runtime_seconds"></span>
+                秒
+            </div>
+        
+        
+        
+            <script async data-pjax >
+              try {
+                function odometer_init() {
+                  const elements = document.querySelectorAll('.odometer');
+                  elements.forEach(el => {
+                    new Odometer({
+                      el,
+                      format: '( ddd).dd',
+                      duration: 200
+                    });
+                  });
+                }
+
+                odometer_init();
+              } catch (error) {
+              }
+            </script>
+        
+        
+
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

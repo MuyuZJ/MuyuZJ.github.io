@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Muyu">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://muyuzj.github.io/2023-07-21/javase-编程这条路/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="编程语言编程语言介绍编程语言是人与计算机之间传递信息的媒介 能使用计算机帮助用户完成各种工作 计算机语言又分为Java, C, Python等诸多语言 (就好比现实有中文 英文 德语等诸多语言) 编程语言发展史 第一代语言 机器语言 (直接在纸带上打孔 交由计算机处理) 第二代语言 汇编语言 (利用汇编语言与计算机交互) 第三代语言 高级语言 C&#x2F;C++ &#x2F; Python &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSE 编程这条路">
+<meta property="og:url" content="https://muyuzj.github.io/2023-07-21/JavaSE-%E7%BC%96%E7%A8%8B%E8%BF%99%E6%9D%A1%E8%B7%AF/index.html">
+<meta property="og:site_name" content="Muyu&#39;s Home">
+<meta property="og:description" content="编程语言编程语言介绍编程语言是人与计算机之间传递信息的媒介 能使用计算机帮助用户完成各种工作 计算机语言又分为Java, C, Python等诸多语言 (就好比现实有中文 英文 德语等诸多语言) 编程语言发展史 第一代语言 机器语言 (直接在纸带上打孔 交由计算机处理) 第二代语言 汇编语言 (利用汇编语言与计算机交互) 第三代语言 高级语言 C&#x2F;C++ &#x2F; Python &amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zkres1.myzaker.com/202301/63b8da158e9f09254906840e_1024.jpg">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-21/JavaSE-%E7%BC%96%E7%A8%8B%E8%BF%99%E6%9D%A1%E8%B7%AF/format,f_auto">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-21/JavaSE-%E7%BC%96%E7%A8%8B%E8%BF%99%E6%9D%A1%E8%B7%AF/image-20230722022816997.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-07-21/JavaSE-%E7%BC%96%E7%A8%8B%E8%BF%99%E6%9D%A1%E8%B7%AF/image-20230722022833905.png">
+<meta property="article:published_time" content="2023-07-21T11:29:58.000Z">
+<meta property="article:modified_time" content="2023-07-23T18:51:23.843Z">
+<meta property="article:author" content="沐雨">
+<meta property="article:tag" content="JavaSE">
+<meta property="article:tag" content="KuangStudy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zkres1.myzaker.com/202301/63b8da158e9f09254906840e_1024.jpg">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/avatar_circle.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar_circle.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/avatar_circle.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            JavaSE 编程这条路 -
+        
+        Muyu Blogs
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"muyuzj.github.io","root":"/","language":"zh-CN"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"../images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"朝雾夕霞 沐雨听风","subtitle":{"text":["为世间美好而战.","Less is more."],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":200,"backing_speed":100,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/MuyuZJ?tab=repositories","zhihu":"https://www.zhihu.com/people/muyu-muyu"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.2.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/07/21 07:00:00"};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Muyu Blogs
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                
+                  <h1 class="article-title-regular">JavaSE 编程这条路</h1>
+                
+              </div>
+              
+                     
+            
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Muyu</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-07-21 19:29:58</span>
+        <span class="mobile">2023-07-21 19:29:58</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-07-24 02:51:23</span>
+            <span class="mobile">2023-07-24 02:51:23</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaSE/">JavaSE</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/KuangStudy/">KuangStudy</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h2><h3 id="编程语言介绍"><a href="#编程语言介绍" class="headerlink" title="编程语言介绍"></a>编程语言介绍</h3><p>编程语言是人与计算机之间传递信息的媒介 能使用计算机帮助用户完成各种工作</p>
+<p>计算机语言又分为Java, C, Python等诸多语言 (就好比现实有中文 英文 德语等诸多语言)</p>
+<h3 id="编程语言发展史"><a href="#编程语言发展史" class="headerlink" title="编程语言发展史"></a>编程语言发展史</h3><ol>
+<li>第一代语言 机器语言 (直接在纸带上打孔 交由计算机处理)</li>
+<li>第二代语言 汇编语言 (利用汇编语言与计算机交互)</li>
+<li>第三代语言 高级语言 C&#x2F;C++ &#x2F; Python &#x2F; Java … (可以编译成文件交由计算机执行)</li>
+</ol>
+<blockquote>
+<p>  Java分为三个版本<br>  ​	- JavaSE Java标准版 针对桌面<br>  ​	- JavaME Java移动版 针对移动端<br>  ​	- JavaEE Java企业版 针对服务端</p>
+<p>  三高: 高性能 高并发 高可用</p>
+</blockquote>
+<h3 id="编程语言选择"><a href="#编程语言选择" class="headerlink" title="编程语言选择"></a>编程语言选择</h3><p>下图是2023年1月开发人员使用的计算机语言排行榜</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://zkres1.myzaker.com/202301/63b8da158e9f09254906840e_1024.jpg"
+                      alt="2023年1月编程语言排行榜"
+                ></p>
+<p>主流的编程语言 Python Java C&#x2F;C++ 等都值得学习</p>
+<p>Java不一定是各方面做的最好的 可以根据自己喜好学习</p>
+<p>本博客基于Java语言进行代码的编写和学习 学习途径来源于 <a class="link"   target="_blank" rel="noopener" href="https://www.kuangstudy.com/" >遇见狂神说 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h3 id="什么是Java"><a href="#什么是Java" class="headerlink" title="什么是Java"></a>什么是Java</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-21/JavaSE-%E7%BC%96%E7%A8%8B%E8%BF%99%E6%9D%A1%E8%B7%AF/format,f_auto"
+                      alt="概述图册"
+                ></p>
+<p>Java是一种编程语言 被特意设计用于互联网的分布式环境</p>
+<p>Java是由Sun公司在1995年推出的 目前最常用的是Java8&#x2F;Java1.8 最新版(目前)为Java19</p>
+<h3 id="Java的历史"><a href="#Java的历史" class="headerlink" title="Java的历史"></a>Java的历史</h3><p>在1972年 C语言诞生</p>
+<ul>
+<li>贴近硬件 运行快 效率高</li>
+<li>操作系统 编译器 数据库 网络系统等</li>
+<li>指针和内存管理</li>
+</ul>
+<p>在1982年 C++ 诞生</p>
+<ul>
+<li>面向对象</li>
+<li>兼容C</li>
+<li>图形领域 游戏等</li>
+</ul>
+<p>很多复杂特性让学者望而却步 寻找一个新的编程语言 需要以下特性</p>
+<ul>
+<li>语法像C&#x2F;C++</li>
+<li>没有指针和内存管理</li>
+<li>具有高可移植性</li>
+<li>面向对象 类型安全 具有高质量类库</li>
+<li>…</li>
+</ul>
+<p>至此 Java横空出世</p>
+<h3 id="Java的优势"><a href="#Java的优势" class="headerlink" title="Java的优势"></a>Java的优势</h3><ul>
+<li>简单性: 语法简单 易于学习</li>
+<li>面向对象</li>
+<li>可移植性 一次编写到处运行(write once, run everywhere) 依赖于JVM(Java虚拟机)</li>
+<li>高性能 性能将会媲美C语言</li>
+<li>分布式</li>
+<li>动态性 反射</li>
+<li>多线程 更好的交互性</li>
+<li>安全性</li>
+<li>健壮性 异常机制</li>
+<li>…</li>
+</ul>
+<h3 id="Java包含的内容"><a href="#Java包含的内容" class="headerlink" title="Java包含的内容"></a>Java包含的内容</h3><p>通常我们会从互联网上下载JDK (JDK包含了JRE JRE包含了JVM)</p>
+<ul>
+<li>JDK: Java Development Kit, Java开发者工具</li>
+<li>JRE: Java Runtime Environment, Java运行环境</li>
+<li>JVM: Java Virturl Machine, Java虚拟机</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-21/JavaSE-%E7%BC%96%E7%A8%8B%E8%BF%99%E6%9D%A1%E8%B7%AF/image-20230722022816997.png"
+                      alt="image-20230722022816997"
+                ></p>
+<p>JVM是Java代码可以在众多平台执行的根本原因 避免了物理平台的差异化</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-07-21/JavaSE-%E7%BC%96%E7%A8%8B%E8%BF%99%E6%9D%A1%E8%B7%AF/image-20230722022833905.png"
+                      alt="image-20230722022833905"
+                ></p>
+<p>Java的下载安装在后续环境安装的文档中会具体说明</p>
+<h3 id="Java能做什么"><a href="#Java能做什么" class="headerlink" title="Java能做什么"></a>Java能做什么</h3><p>Java几乎运行在生活的方方面面</p>
+<ul>
+<li>建立网站</li>
+<li>应用开发 (Android开发 企业级开发 桌面级开发等) Ant, Maven, Tomcat, Spring, Eclipse …</li>
+<li>嵌入式即消费类设备开发</li>
+<li>互联网大数据处理</li>
+<li>科学研究</li>
+<li>金融领域</li>
+<li>… …</li>
+</ul>
+<h3 id="Java的分类"><a href="#Java的分类" class="headerlink" title="Java的分类"></a>Java的分类</h3><p>Java可以运行在众多平台上</p>
+<ul>
+<li>JavaSE Java平台标准版 最多使用</li>
+<li>JavaEE Java平台企业版 用于开发企业应用程序</li>
+<li>JavaME Java平台微型版 用于开发嵌入式设备</li>
+</ul>
+<h3 id="如何学习Java"><a href="#如何学习Java" class="headerlink" title="如何学习Java"></a>如何学习Java</h3><p>多写代码 多写笔记 多写文章</p>
+<p>多练交流 多练思维 多练技能</p>
+<p>多享知识 多问问题 多想为何</p>
+<p>最后最重要的: 坚持 坚持 坚持!!!</p>
+<h3 id="Java的就业前景"><a href="#Java的就业前景" class="headerlink" title="Java的就业前景"></a>Java的就业前景</h3><p>Java仍然是当今世界主流编程语言之一 使用范围广 就业范围广 用于绝大多数领域的诸多方向 薪资较高</p>
+<p>无论如何 尽量往高和深的方向学习 世界不缺CURD程序员 越高级越是难以被替代</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> JavaSE 编程这条路</li>
+        <li><strong>作者:</strong> Muyu</li>
+        <li><strong>创建于:</strong> 2023-07-21 19:29:58</li>
+        
+            <li>
+                <strong>更新于:</strong> 2023-07-24 02:51:23
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://muyuzj.github.io/2023-07-21/JavaSE-编程这条路/
+        </li>
+        <li>
+            <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JavaSE/">#JavaSE</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/KuangStudy/">#KuangStudy</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023-07-22/JavaSE-%E9%A2%84%E7%A7%91%E9%98%B6%E6%AE%B5/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">JavaSE 预科阶段</span>
+                                    <span class="post-nav-item">上一篇</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023-07-21/%E6%AC%A2%E8%BF%8E%E4%BD%A0%20%E6%88%91%E7%9A%84%E6%9C%8B%E5%8F%8B!/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">欢迎你 我的朋友!</span>
+                                    <span class="post-nav-item">下一篇</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">JavaSE 编程这条路</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"><span class="nav-text">编程语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%BB%8B%E7%BB%8D"><span class="nav-text">编程语言介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="nav-text">编程语言发展史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%89%E6%8B%A9"><span class="nav-text">编程语言选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-text">Java</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFJava"><span class="nav-text">什么是Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="nav-text">Java的历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-text">Java的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E5%8C%85%E5%90%AB%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-text">Java包含的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-text">Java能做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">Java的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0Java"><span class="nav-text">如何学习Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%9A%84%E5%B0%B1%E4%B8%9A%E5%89%8D%E6%99%AF"><span class="nav-text">Java的就业前景</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+                <span>2023</span>
+                -
+            
+            2023
+            &nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a
+                    href="/">Muyu</a>
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"
+                                                        class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"
+                                                        class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">
+                由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
+            <br>
+            
+            <span class="theme-version-container">
+                主题&nbsp;
+                <a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.2.2
+                </a>
+                
+            </span>
+        </div>
+        
+        
+        
+            <div>
+                博客已运行
+                <span class="odometer" id="runtime_days">
+
+                 </span>
+
+                天
+                <span class="odometer" id="runtime_hours"></span>
+                小时
+                <span class="odometer" id="runtime_minutes"></span>
+                分钟 <span class="odometer" id="runtime_seconds"></span>
+                秒
+            </div>
+        
+        
+        
+            <script async data-pjax >
+              try {
+                function odometer_init() {
+                  const elements = document.querySelectorAll('.odometer');
+                  elements.forEach(el => {
+                    new Odometer({
+                      el,
+                      format: '( ddd).dd',
+                      duration: 200
+                    });
+                  });
+                }
+
+                odometer_init();
+              } catch (error) {
+              }
+            </script>
+        
+        
+
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

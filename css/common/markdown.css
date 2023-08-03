@@ -10,7 +10,7 @@
   padding: 0 1rem 0 0.5rem;
   border-radius: 0 $redefine-border-radius-medium $redefine-border-radius-medium 0;
   position: relative;
-  border-left: 5px solid #add8e6;
+  border-left: 5px solid var(--default-text-color);
 }
 .markdown-body blockquote p,
 .markdown-body blockquote ul,

@@ -13,23 +13,34 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://muyuzj.github.io/2023-07-21/欢迎你 我的朋友!/"/>
+    <link rel="canonical" href="https://muyuzj.github.io/2023-09-24/javase-io流学习/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="欢迎 &amp; 愿景 欢迎到访沐雨Blog的每一位来客 衷心感谢您的到来 这是一个分享知识, 交流经验和探索新领域发现新大陆的角落 无论你是新老朋友, 我都希望你在这里能够获得有价值的内容和启发 我会不断更新文章, 与大家分享我的见解, 经历和研究成果 无论你是想学习新技能, 寻求灵感还是与我进行讨论, 我都欢迎你在博客中留言 再次感谢你的光临 希望你在这个博客中有一个愉快且有益的体验  关于S">
+        <meta name="description" content="什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当于内存输入 默认谈论输入输出流以内存(程序)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欢迎你 我的朋友!">
-<meta property="og:url" content="https://muyuzj.github.io/2023-07-21/%E6%AC%A2%E8%BF%8E%E4%BD%A0%20%E6%88%91%E7%9A%84%E6%9C%8B%E5%8F%8B!/index.html">
+<meta property="og:title" content="JavaSE-IO流学习">
+<meta property="og:url" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Muyu&#39;s Home">
-<meta property="og:description" content="欢迎 &amp; 愿景 欢迎到访沐雨Blog的每一位来客 衷心感谢您的到来 这是一个分享知识, 交流经验和探索新领域发现新大陆的角落 无论你是新老朋友, 我都希望你在这里能够获得有价值的内容和启发 我会不断更新文章, 与大家分享我的见解, 经历和研究成果 无论你是想学习新技能, 寻求灵感还是与我进行讨论, 我都欢迎你在博客中留言 再次感谢你的光临 希望你在这个博客中有一个愉快且有益的体验  关于S">
+<meta property="og:description" content="什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当于内存输入 默认谈论输入输出流以内存(程序)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-20T22:19:52.000Z">
-<meta property="article:modified_time" content="2023-09-24T07:01:40.527Z">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152030545.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924153546018.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924154442455.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165051327.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165216495.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165118770.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165130207.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165143326.png">
+<meta property="article:published_time" content="2023-09-24T07:07:35.000Z">
+<meta property="article:modified_time" content="2023-09-25T05:02:04.703Z">
 <meta property="article:author" content="沐雨">
-<meta property="article:tag" content="Muyu">
+<meta property="article:tag" content="JavaSE">
+<meta property="article:tag" content="KuangStudy">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png">
     
     
     <!--- Icon Part-->
@@ -41,7 +52,7 @@
     
     <title>
         
-            欢迎你 我的朋友! -
+            JavaSE-IO流学习 -
         
         Muyu Blogs
     </title>
@@ -202,7 +213,7 @@
 
         <div class="article-title">
             
-                <h1 class="article-title-regular">欢迎你 我的朋友!</h1>
+                <h1 class="article-title-regular">JavaSE-IO流学习</h1>
             
             </div>
             
@@ -224,15 +235,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-07-21 06:19:52</span>
-        <span class="mobile">2023-07-21 06:19:52</span>
+        <span class="desktop">2023-09-24 15:07:35</span>
+        <span class="mobile">2023-09-24 15:07:35</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-24 15:01:40</span>
-            <span class="mobile">2023-09-24 15:01:40</span>
+            <span class="desktop">2023-09-25 13:02:04</span>
+            <span class="mobile">2023-09-25 13:02:04</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -244,7 +255,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Muyu/">Muyu</a>&nbsp;
+                        <a href="/tags/JavaSE/">JavaSE</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/KuangStudy/">KuangStudy</a>&nbsp;
                     </li>
                 
             </ul>
@@ -267,41 +282,230 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="欢迎-愿景"><a href="#欢迎-愿景" class="headerlink" title="欢迎 &amp; 愿景"></a>欢迎 &amp; 愿景</h2><blockquote>
-<p>欢迎到访沐雨Blog的每一位来客 衷心感谢您的到来</p>
-<p>这是一个分享知识, 交流经验和探索新领域发现新大陆的角落</p>
-<p>无论你是新老朋友, 我都希望你在这里能够获得有价值的内容和启发</p>
-<p>我会不断更新文章, 与大家分享我的见解, 经历和研究成果</p>
-<p>无论你是想学习新技能, 寻求灵感还是与我进行讨论, 我都欢迎你在博客中留言</p>
-<p>再次感谢你的光临 希望你在这个博客中有一个愉快且有益的体验</p>
+            <h2 id="什么是IO流"><a href="#什么是IO流" class="headerlink" title="什么是IO流"></a>什么是IO流</h2><p>Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输</p>
+<p>JDK提供了各种各样的流 以适应不同的需求</p>
+<p>IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png"
+                      alt="image-20230924152151389"
+                ></p>
+<p>IO流根据内存为参照物 按照流向进行分类</p>
+<ul>
+<li>磁盘往内存写入数据 称为读</li>
+<li>内存往磁盘输出数据 称为写</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152030545.png"
+                      alt="image-20230924152030545"
+                ></p>
+<p>可以看到内存输出相当于磁盘输入 磁盘输出相当于内存输入</p>
+<p>默认谈论输入输出流以内存(程序)角度</p>
+<p>Java有用于读写数据的类 <code>File</code>  它的实例只是内存的一个对象 真正文件是磁盘某块空间</p>
+<p>如何读取和写入 其实和饮水机结构相似</p>
+<ul>
+<li>读取<ul>
+<li>扣上水桶(放入文件) 打开水龙头(开启输入流)</li>
+</ul>
+</li>
+<li>写入<ul>
+<li>接上水桶(准备文件) 打开水龙头(开启输出流)</li>
+</ul>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924153546018.png"
+                      alt="image-20230924153546018"
+                ></p>
+<p>如若输入输出的数据不规范还可以套上过滤器(管道) 以达到需要的效果</p>
+<h2 id="IO流分类"><a href="#IO流分类" class="headerlink" title="IO流分类"></a>IO流分类</h2><p>输入输出流定义在<code>java.io</code>包下 </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924154442455.png"
+                      alt="image-20230924154442455"
+                ></p>
+<p>可以从不同角度进行划分</p>
+<ul>
+<li>按照数据流方向划分 可以分为输入流和输出流</li>
+<li>按照处理数据单位划分 可以分为字节流和字符流</li>
+<li>按照功能划分 可以分为节点流和处理流</li>
+</ul>
+<blockquote>
+<p>  字节流和字符流</p>
+<ul>
+<li>字节流处理数据是以0和1表示的最底层数据表示形式 按照字节(1Byte&#x2F;8bit)读取</li>
+<li>字符流 按照字符(2字节) 依次读取</li>
+</ul>
+<p>  JDK提供有如下抽象流类型 可供使用</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>字节流</th>
+<th>字符流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>输入流</td>
+<td>InputStream</td>
+<td>Reader</td>
+</tr>
+<tr>
+<td>输出流</td>
+<td>OutputStream</td>
+<td>Writer</td>
+</tr>
+</tbody></table>
+<p>  通过流 可以实现程序和数据源之间的数据交换</p>
+<p>  后文会着重讲述四种抽象流类型</p>
 </blockquote>
-<h2 id="关于Slogan"><a href="#关于Slogan" class="headerlink" title="关于Slogan"></a>关于Slogan</h2><blockquote>
-<p>“朝雾夕霞 沐雨听风”</p>
-<p>这句是我自己想的 最初的目的是为了与某人的Slogan做一个对应 (后来才知道那是一句诗)</p>
-<p>虽说后来与某人不常联系 但至少我挺喜欢自己写的这句</p>
-<p>见到清晨透过迷雾的朝阳 遇到傍晚天边绝美的晚霞 沐浴在柔柔微雨中 听耳畔抚摸的清风  </p>
-<p>美好的事物无处不在 又需要待人看见 它可以是一个景 可以是一首歌 亦或是一段文字</p>
-<p>身处尘世 心若远游 认真感受世间的每一缕风一捧雨 与世界做一个零距离的交流</p>
-<p>最后 希望自己永远能保持一颗平常心 处事不惊 积极上进 温柔而坚定 </p>
+<blockquote>
+<p>  节点流和处理流</p>
+<ul>
+<li>节点流是程序直接读取或者写入数据源的数据</li>
+<li>处理流是包在其他流上的流</li>
+</ul>
+<p>  节点流</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>字符流</th>
+<th>字节流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File (文件)</td>
+<td>FileReader &#x2F; FileWriter</td>
+<td>FileInputStream &#x2F; FileOutputStream</td>
+</tr>
+<tr>
+<td>Memory Array</td>
+<td>CharArrayReader &#x2F; CharArrayWriter</td>
+<td>ByteArrayInputStream &#x2F; ByteArrayOutputStream</td>
+</tr>
+<tr>
+<td>Memory String</td>
+<td>StringReader &#x2F; StringWriter</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pipe (管道)</td>
+<td>PipedReader &#x2F; PipedWriter</td>
+<td>PipedInputStream &#x2F; PipedOutputStream</td>
+</tr>
+</tbody></table>
+<p>  处理流</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>字符流</th>
+<th>字节流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Buffering</td>
+<td>BufferedReader &#x2F; BufferedWriter</td>
+<td>BufferedInputStream &#x2F;BufferedOutputStream</td>
+</tr>
+<tr>
+<td>Filtering</td>
+<td>FilterReader &#x2F; FilterWriter</td>
+<td>FilterInputStream &#x2F; FilterOutputStream</td>
+</tr>
+<tr>
+<td>Converting between bytes and character</td>
+<td>InputStreamReader &#x2F; OutputStreamWriter</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Object Serialization</td>
+<td>-</td>
+<td>ObjectInputStream、 ObjectOutputStream</td>
+</tr>
+<tr>
+<td>Data conversion</td>
+<td>-</td>
+<td>DataInputStream、 DataOutputStream</td>
+</tr>
+<tr>
+<td>Counting</td>
+<td>LineNumberReader</td>
+<td>LineNumberInputStream</td>
+</tr>
+<tr>
+<td>Peeking ahead</td>
+<td>PusbackReader</td>
+<td>PushbackInputStream</td>
+</tr>
+<tr>
+<td>Printing</td>
+<td>PrintWriter</td>
+<td>PrintStream</td>
+</tr>
+</tbody></table>
 </blockquote>
-<h2 id="本博客教程来源"><a href="#本博客教程来源" class="headerlink" title="本博客教程来源"></a>本博客教程来源</h2><p>遇见狂神说: <a class="link"   target="_blank" rel="noopener" href="https://www.kuangstudy.com/course?cid=1" >KuangStudy.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-
+<h2 id="InputStream输入流"><a href="#InputStream输入流" class="headerlink" title="InputStream输入流"></a>InputStream输入流</h2><p>InputStream是字节形式的输入流</p>
+<p>下图深色为节点流 浅色为处理流 下同</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165051327.png"
+                      alt="image-20230924165051327"
+                ></p>
+<p>InputStream有如下方法</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165216495.png"
+                      alt="image-20230924165216495"
+                ></p>
+<p>File类 (文件类) 是节点流典型代表</p>
+<h2 id="OutputStream输出流"><a href="#OutputStream输出流" class="headerlink" title="OutputStream输出流"></a>OutputStream输出流</h2><p>OutputStream是字节形式的输出流</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165118770.png"
+                      alt="image-20230924165118770"
+                ></p>
+<h2 id="Reader流"><a href="#Reader流" class="headerlink" title="Reader流"></a>Reader流</h2><p>Reader是字符形式的输入流</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165130207.png"
+                      alt="image-20230924165130207"
+                ></p>
+<h2 id="Writer流"><a href="#Writer流" class="headerlink" title="Writer流"></a>Writer流</h2><p>Writer是字符形式的输出流</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165143326.png"
+                      alt="image-20230924165143326"
+                ></p>
+<h2 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h2><h3 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h3><h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
         </div>
 
         
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 欢迎你 我的朋友!</li>
+        <li><strong>标题:</strong> JavaSE-IO流学习</li>
         <li><strong>作者:</strong> Muyu</li>
-        <li><strong>创建于:</strong> 2023-07-21 06:19:52</li>
+        <li><strong>创建于:</strong> 2023-09-24 15:07:35</li>
         
             <li>
-                <strong>更新于:</strong> 2023-09-24 15:01:40
+                <strong>更新于:</strong> 2023-09-25 13:02:04
             </li>
         
         <li>
-            <strong>链接:</strong> https://muyuzj.github.io/2023-07-21/欢迎你 我的朋友!/
+            <strong>链接:</strong> https://muyuzj.github.io/2023-09-24/JavaSE-IO流学习/
         </li>
         <li>
             <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
@@ -316,7 +520,11 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/Muyu/">#Muyu</a>&nbsp;
+                        <a href="/tags/JavaSE/">#JavaSE</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/KuangStudy/">#KuangStudy</a>&nbsp;
                     </li>
                 
             </ul>
@@ -327,21 +535,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2023-07-21/JavaSE-%E7%BC%96%E7%A8%8B%E8%BF%99%E6%9D%A1%E8%B7%AF/"
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023-09-24/JavaSE-%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%AD%A6%E4%B9%A0/"
                         >
-                            <span class="left arrow-icon flex-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">JavaSE 编程这条路</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="post-nav-title-item">JavaSE-常用类学习</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                                <i class="fa-solid fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         
@@ -355,8 +563,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">目录</div>
-        <div class="page-title">欢迎你 我的朋友!</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A2%E8%BF%8E-%E6%84%BF%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">欢迎 &amp; 愿景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8ESlogan"><span class="nav-number">2.</span> <span class="nav-text">关于Slogan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">本博客教程来源</span></a></li></ol>
+        <div class="page-title">JavaSE-IO流学习</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFIO%E6%B5%81"><span class="nav-number">1.</span> <span class="nav-text">什么是IO流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E6%B5%81%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">IO流分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InputStream%E8%BE%93%E5%85%A5%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text">InputStream输入流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OutputStream%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-number">4.</span> <span class="nav-text">OutputStream输出流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reader%E6%B5%81"><span class="nav-number">5.</span> <span class="nav-text">Reader流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Writer%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">Writer流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%B5%81"><span class="nav-number">7.</span> <span class="nav-text">处理流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E6%B5%81"><span class="nav-number">7.1.</span> <span class="nav-text">缓冲流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="nav-number">7.2.</span> <span class="nav-text">转换流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">7.3.</span> <span class="nav-text">数据流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E6%B5%81"><span class="nav-number">7.4.</span> <span class="nav-text">打印流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E6%B5%81"><span class="nav-number">7.5.</span> <span class="nav-text">对象流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol>
 
     </div>
 </div>

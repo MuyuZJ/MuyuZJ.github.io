@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://muyuzj.github.io/2023-09-21/JavaSE-%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/image-20230924000847100.png">
 <meta property="og:image" content="https://muyuzj.github.io/2023-09-21/JavaSE-%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/image-20230924001902386.png">
 <meta property="article:published_time" content="2023-09-21T13:08:22.000Z">
-<meta property="article:modified_time" content="2023-09-23T16:28:39.894Z">
+<meta property="article:modified_time" content="2023-09-24T06:57:04.382Z">
 <meta property="article:author" content="沐雨">
 <meta property="article:tag" content="JavaSE">
 <meta property="article:tag" content="KuangStudy">
@@ -248,8 +248,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-24 00:28:39</span>
-            <span class="mobile">2023-09-24 00:28:39</span>
+            <span class="desktop">2023-09-24 14:57:04</span>
+            <span class="mobile">2023-09-24 14:57:04</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -671,7 +671,15 @@
 <p>该方法用于启动&#x2F;禁用访问安全检查 </p>
 <p>如果参数值为true则代表对象是用取消java语言访问检查 反之则事实访问检查</p>
 <p>为提高反射效率 请设置为true</p>
-<h3 id="反射操作泛型"><a href="#反射操作泛型" class="headerlink" title="反射操作泛型"></a>反射操作泛型</h3><p>略</p>
+<h3 id="反射操作泛型"><a href="#反射操作泛型" class="headerlink" title="反射操作泛型"></a>反射操作泛型</h3><p>Java采用泛型擦除的机制引入泛型 Java的泛型仅用于编译器javac 免去强制转换问题 确保数据安全性</p>
+<p>当编译完成 所有泛型类型都将被擦除</p>
+<p>Java新增了几种类型来代表不能被归一到Class类中的类型但是又和原始类型齐名的类型</p>
+<ul>
+<li>ParameterizedType : 表示一种参数化类型,比如Collection</li>
+<li>GenericArrayType : 表示一种元素类型是参数化类型或者类型变量的数组类型 </li>
+<li>TypeVariable : 是各种类型变量的公共父接口</li>
+<li>WildcardType : 代表一种通配符类型表达式</li>
+</ul>
 
         </div>
 
@@ -684,7 +692,7 @@
         <li><strong>创建于:</strong> 2023-09-21 21:08:22</li>
         
             <li>
-                <strong>更新于:</strong> 2023-09-24 00:28:39
+                <strong>更新于:</strong> 2023-09-24 14:57:04
             </li>
         
         <li>
@@ -717,6 +725,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2023-09-24/JavaSE-JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaSE-JUC并发编程</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">

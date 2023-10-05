@@ -18,12 +18,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当于内存输入 默认谈论输入输出流以内存(程序)">
+        <meta name="description" content="涉及文件的读写 就需要使用到IO流  什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaSE-IO流学习">
 <meta property="og:url" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Muyu&#39;s Home">
-<meta property="og:description" content="什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当于内存输入 默认谈论输入输出流以内存(程序)">
+<meta property="og:description" content="涉及文件的读写 就需要使用到IO流  什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png">
 <meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152030545.png">
@@ -31,11 +31,18 @@
 <meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924154442455.png">
 <meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165051327.png">
 <meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165216495.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005165552829.png">
 <meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165118770.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005170003970.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005171139311.png">
 <meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165130207.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172712990.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172249394.png">
 <meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165143326.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172904161.png">
+<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172839754.png">
 <meta property="article:published_time" content="2023-09-24T07:07:35.000Z">
-<meta property="article:modified_time" content="2023-09-25T05:02:04.703Z">
+<meta property="article:modified_time" content="2023-10-05T14:22:20.973Z">
 <meta property="article:author" content="沐雨">
 <meta property="article:tag" content="JavaSE">
 <meta property="article:tag" content="KuangStudy">
@@ -242,8 +249,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-25 13:02:04</span>
-            <span class="mobile">2023-09-25 13:02:04</span>
+            <span class="desktop">2023-10-05 22:22:20</span>
+            <span class="mobile">2023-10-05 22:22:20</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -282,7 +289,10 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="什么是IO流"><a href="#什么是IO流" class="headerlink" title="什么是IO流"></a>什么是IO流</h2><p>Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输</p>
+            <blockquote>
+<p>  涉及文件的读写 就需要使用到IO流</p>
+</blockquote>
+<h2 id="什么是IO流"><a href="#什么是IO流" class="headerlink" title="什么是IO流"></a>什么是IO流</h2><p>Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输</p>
 <p>JDK提供了各种各样的流 以适应不同的需求</p>
 <p>IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写</p>
 <p><img  
@@ -323,6 +333,8 @@
                       alt="image-20230924153546018"
                 ></p>
 <p>如若输入输出的数据不规范还可以套上过滤器(管道) 以达到需要的效果</p>
+<p>本章节 着重讲解字符流 处理流笔墨相对少</p>
+<p>InputStream &#x2F; OutputStream &#x2F; Reader &#x2F; Writer 都是虚拟类 实例调用虚类的实现类展示</p>
 <h2 id="IO流分类"><a href="#IO流分类" class="headerlink" title="IO流分类"></a>IO流分类</h2><p>输入输出流定义在<code>java.io</code>包下 </p>
 <p><img  
                      lazyload
@@ -368,7 +380,7 @@
 <blockquote>
 <p>  节点流和处理流</p>
 <ul>
-<li>节点流是程序直接读取或者写入数据源的数据</li>
+<li>节点流是程序直接读取或者写入数据源的数据 File是节点流的代表</li>
 <li>处理流是包在其他流上的流</li>
 </ul>
 <p>  节点流</p>
@@ -467,7 +479,20 @@
                      data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165216495.png"
                       alt="image-20230924165216495"
                 ></p>
-<p>File类 (文件类) 是节点流典型代表</p>
+<p>创建文本test.txt文件 写入内容并保存</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is Test.txt 你好</span><br></pre></td></tr></table></figure></div>
+
+<p>编写对应的读取代码</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">FileInputStream</span> <span class="variable">fileInputStream</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    fileInputStream = <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;src/IO/test.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 用于记录从流中读取出的字节转换而成的整数 所以后续需要使用(char) 进行强制类型转换</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 记录文件长度</span></span><br><span class="line">    <span class="keyword">while</span> ((b = fileInputStream.read()) != -<span class="number">1</span>) &#123; <span class="comment">// 如果没有读取到文件末尾则继续读取</span></span><br><span class="line">        System.out.print((<span class="type">char</span>) b); <span class="comment">// 注意这里不是println 没有进行换行展示 中文有乱码情况</span></span><br><span class="line">        len++;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">    <span class="comment">// 关闭输入流 (用完即关 节省系统资源 但不要频繁开关)</span></span><br><span class="line">    fileInputStream.close();</span><br><span class="line">    <span class="comment">// 打印最终结果</span></span><br><span class="line">    System.out.println(<span class="string">&quot;文件大小为&quot;</span> + len + <span class="string">&quot;字节&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>可以发现 中文出现了乱码情况</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005165552829.png"
+                      alt="image-20231005165552829"
+                ></p>
+<p>因为英文字符使用一个字节 中文字符的表示使用了两个字节 而FileInputStream是依次读取每一个字节 导致中文字符被拆分成两个字节进行读取 故显示内容有乱码问题</p>
 <h2 id="OutputStream输出流"><a href="#OutputStream输出流" class="headerlink" title="OutputStream输出流"></a>OutputStream输出流</h2><p>OutputStream是字节形式的输出流</p>
 <p><img  
                      lazyload
@@ -475,12 +500,49 @@
                      data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165118770.png"
                       alt="image-20230924165118770"
                 ></p>
+<p>OutputStream有如下方法</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005170003970.png"
+                      alt="image-20231005170003970"
+                ></p>
+<p>创建文件out.txt</p>
+<p>编写如下程序</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">FileOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> <span class="literal">null</span>; <span class="comment">// 定义输出流</span></span><br><span class="line">    outputStream = <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;src/IO/out.txt&quot;</span>); <span class="comment">// 确认写出文件</span></span><br><span class="line">    outputStream.write(<span class="string">&quot;Hello World&quot;</span>.getBytes()); <span class="comment">// 转换为字节 写入到文件输出流中</span></span><br><span class="line">    outputStream.close(); <span class="comment">// 关闭输出流</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>程序执行后 打开out.txt 结果如下</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005171139311.png"
+                      alt="image-20231005171139311"
+                ></p>
+<p>如果将读取的乱码数据写入新文件 则结果还是乱码</p>
 <h2 id="Reader流"><a href="#Reader流" class="headerlink" title="Reader流"></a>Reader流</h2><p>Reader是字符形式的输入流</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165130207.png"
                       alt="image-20230924165130207"
+                ></p>
+<p>Reader有如下方法</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172712990.png"
+                      alt="image-20231005172712990"
+                ></p>
+<p>Reader流和InputStream类似 但Reader一次读取两个字节 (所以中文也不会出现乱码的情况)</p>
+<p>重写InputStream的例子</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">FileReader</span> <span class="variable">fileReader</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    fileReader = <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;src/IO/test.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 用于记录从流中读取出的字节转换而成的整数 所以后续需要使用(char) 进行强制类型转换</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 记录文件长度</span></span><br><span class="line">    <span class="keyword">while</span> ((b = fileReader.read()) != -<span class="number">1</span>) &#123; <span class="comment">// 如果没有读取到文件末尾则继续读取</span></span><br><span class="line">        System.out.print((<span class="type">char</span>) b); <span class="comment">// 注意这里不是println 没有进行换行展示 中文有乱码情况</span></span><br><span class="line">        len++;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">    <span class="comment">// 关闭输入流 (用完即关 节省系统资源 但不要频繁开关)</span></span><br><span class="line">    fileReader.close();</span><br><span class="line">    <span class="comment">// 打印最终结果</span></span><br><span class="line">    System.out.println(<span class="string">&quot;文件大小为&quot;</span> + len + <span class="string">&quot;字节&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>运行结果如下 可以发现已经可以正常读取 不会显示成乱码了</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172249394.png"
+                      alt="image-20231005172249394"
                 ></p>
 <h2 id="Writer流"><a href="#Writer流" class="headerlink" title="Writer流"></a>Writer流</h2><p>Writer是字符形式的输出流</p>
 <p><img  
@@ -489,7 +551,65 @@
                      data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165143326.png"
                       alt="image-20230924165143326"
                 ></p>
-<h2 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h2><h3 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h3><h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+<p>Writer流有如下方法</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172904161.png"
+                      alt="image-20231005172904161"
+                ></p>
+<p>Writer和OutputStream类似 这里重写OutputStream的例子</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">FileWriter</span> <span class="variable">fileWriter</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    fileWriter = <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;src/IO/out.txt&quot;</span>);</span><br><span class="line">    fileWriter.write(<span class="string">&quot;This is Muyu Hello World. 你好世界&quot;</span>); <span class="comment">// 无需转换为字节 可以写入到文件输出流中</span></span><br><span class="line">    fileWriter.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>可以发现文本已经被写入目标文件</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172839754.png"
+                      alt="image-20231005172839754"
+                ></p>
+<h2 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h2><p>处理流为在节点流上进行处理的流</p>
+<h3 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h3><p>缓冲流好比”套接”在相应节点流上 对读写数据提供缓冲 功能 提高读写效率</p>
+<p>Java提供了如下接口 可以用于构建缓冲流</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader(Reader in);</span><br><span class="line">BufferedReader(Reader in,<span class="type">int</span> sz); <span class="comment">//sz 为自定义缓冲区的大小 BufferedWriter(Writer out)</span></span><br><span class="line">BufferedWriter(Writer out,<span class="type">int</span> sz);</span><br><span class="line">BufferedInputStream(InputStream in);</span><br><span class="line">BufferedInputStream(InputStream in,<span class="type">int</span> size);</span><br><span class="line">BufferedOutputStream(InputStream in) BufferedOutputStream(InputStream in,<span class="type">int</span> size);</span><br></pre></td></tr></table></figure></div>
+
+<p>对于缓冲流</p>
+<ul>
+<li>支持对应的父类的mark和reset方法<ul>
+<li>保证mark有效的情况下限制读取的字符数 当读取字符达到或超过此限制时 尝试重置流会失败 当限制数值大于输入buffer的默认大小时 将会动态分配一个容量不小于限制数值的buffer  慎用大数值</li>
+<li>调用reset方法时 将回到被定位的位置 再次遍历</li>
+</ul>
+</li>
+<li>BufferedReader提供了readLine方法用于读取一行字符串</li>
+<li>BufferedWriter提供了newLine用于写入一个行分隔符</li>
+<li>对于输出的缓冲流 写出的数据会现在内存中缓存 使用flush方法将会使内存中的数据立刻写出</li>
+</ul>
+<p>缓冲流设置了一个桶 将缓存数据存储到该桶中 再写到磁盘 比起直接写入磁盘的方案 可以有效减少磁盘IO的次数 利于保护磁盘</p>
+<p>mark()和reset()的用法</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BufferedInputStream</span> <span class="variable">bufferedInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;/path/to/file&quot;</span>));</span><br><span class="line">bufferedInputStream.mark(<span class="number">10</span>); <span class="comment">// 在第十个字符处设置一个标记</span></span><br><span class="line"><span class="comment">// ... 其他代码</span></span><br><span class="line">bufferedInputStream.reset(); <span class="comment">// 回到标记处</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><p>InputStreamReader 和 OutputStreamWriter 用于字节数据到字符数据之间的转换</p>
+<p>分别与InputStream和OutputStream进行”套接”</p>
+<p>转换流在构造时可以指定编码集合</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">InputStream</span> <span class="variable">inputStreamReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in, <span class="string">&quot;ISO8859-1&quot;</span>); <span class="comment">// 设定读取编码格式</span></span><br></pre></td></tr></table></figure></div>
+
+<p>转换流是常用的处理流 可以将字节流转换为字符流 有InputStreamReader和OutputStreamWriter两种</p>
+<p>可以将InputStream(字节流)转换成Reader(字符流) 或者将OutputStream(字节流)转换为Writer(字节流)</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">OutputStreamWriter</span> <span class="variable">osw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;D:/java/char.txt&quot;</span>, <span class="literal">true</span>), <span class="string">&quot;ISO8859_1&quot;</span>); <span class="comment">// 设置为true表示追加在文件末 否则会替换原有文件 同时指定字符集编码</span></span><br><span class="line">osw.write(<span class="string">&quot;MircosoftsunIBMOracleApplet&quot;</span>); <span class="comment">// 把字符串写入到指定的文件</span></span><br><span class="line">System.out.println(osw.getEncoding());<span class="comment">// 使用getEncoding()方法取得 当前系统的默认字符编码</span></span><br><span class="line">osw.close(); <span class="comment">// 关闭流式对象</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+
+
+
+
+<h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
         </div>
 
         
@@ -501,7 +621,7 @@
         <li><strong>创建于:</strong> 2023-09-24 15:07:35</li>
         
             <li>
-                <strong>更新于:</strong> 2023-09-25 13:02:04
+                <strong>更新于:</strong> 2023-10-05 22:22:20
             </li>
         
         <li>
@@ -534,6 +654,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2023-09-27/MySQL-MySQL%E5%9F%BA%E7%A1%80/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">MySQL-MySQL基础</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">

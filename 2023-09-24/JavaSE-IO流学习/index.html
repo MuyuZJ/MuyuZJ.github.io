@@ -18,36 +18,42 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="涉及文件的读写 就需要使用到IO流  什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当">
+        <meta name="description" content="涉及文件的读写 就需要使用到IO流  什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当于内">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaSE-IO流学习">
 <meta property="og:url" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Muyu&#39;s Home">
-<meta property="og:description" content="涉及文件的读写 就需要使用到IO流  什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当">
+<meta property="og:description" content="涉及文件的读写 就需要使用到IO流  什么是IO流Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输 JDK提供了各种各样的流 以适应不同的需求 IO流即输入(Input)输出(Output)流 通过IO流可以完成文件的读写  IO流根据内存为参照物 按照流向进行分类  磁盘往内存写入数据 称为读 内存往磁盘输出数据 称为写   可以看到内存输出相当于磁盘输入 磁盘输出相当于内">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152030545.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924153546018.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924154442455.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165051327.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165216495.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005165552829.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165118770.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005170003970.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005171139311.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165130207.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172712990.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172249394.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165143326.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172904161.png">
-<meta property="og:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172839754.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152030545.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924153546018.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924154442455.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165051327.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165216495.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005165552829.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165118770.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005170003970.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005171139311.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165130207.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172712990.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172249394.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165143326.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172904161.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172839754.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006192334035.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006192743704.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006195528449.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006194723978.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006201247429.png">
+<meta property="og:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006212119638.png">
 <meta property="article:published_time" content="2023-09-24T07:07:35.000Z">
-<meta property="article:modified_time" content="2023-10-05T14:22:20.973Z">
+<meta property="article:modified_time" content="2023-10-06T13:36:59.682Z">
 <meta property="article:author" content="沐雨">
 <meta property="article:tag" content="JavaSE">
 <meta property="article:tag" content="KuangStudy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://muyuzj.github.io/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png">
+<meta name="twitter:image" content="https://muyuzj.github.io/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png">
     
     
     <!--- Icon Part-->
@@ -249,8 +255,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-10-05 22:22:20</span>
-            <span class="mobile">2023-10-05 22:22:20</span>
+            <span class="desktop">2023-10-06 21:36:59</span>
+            <span class="mobile">2023-10-06 21:36:59</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -290,7 +296,7 @@
 
         <div class="article-content markdown-body">
             <blockquote>
-<p>  涉及文件的读写 就需要使用到IO流</p>
+<p>涉及文件的读写 就需要使用到IO流</p>
 </blockquote>
 <h2 id="什么是IO流"><a href="#什么是IO流" class="headerlink" title="什么是IO流"></a>什么是IO流</h2><p>Java程序中 所有的数据输入和输出都以流的方式进行 称之为流式传输</p>
 <p>JDK提供了各种各样的流 以适应不同的需求</p>
@@ -298,7 +304,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152151389.png"
                       alt="image-20230924152151389"
                 ></p>
 <p>IO流根据内存为参照物 按照流向进行分类</p>
@@ -309,7 +315,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152030545.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924152030545.png"
                       alt="image-20230924152030545"
                 ></p>
 <p>可以看到内存输出相当于磁盘输入 磁盘输出相当于内存输入</p>
@@ -329,17 +335,17 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924153546018.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924153546018.png"
                       alt="image-20230924153546018"
                 ></p>
-<p>如若输入输出的数据不规范还可以套上过滤器(管道) 以达到需要的效果</p>
-<p>本章节 着重讲解字符流 处理流笔墨相对少</p>
+<p>如若输入输出的数据不规范还可以套上过滤器(处理流) 以达到需要的效果</p>
+<p>本章节 着重讲解节点流 处理流笔墨相对少</p>
 <p>InputStream &#x2F; OutputStream &#x2F; Reader &#x2F; Writer 都是虚拟类 实例调用虚类的实现类展示</p>
-<h2 id="IO流分类"><a href="#IO流分类" class="headerlink" title="IO流分类"></a>IO流分类</h2><p>输入输出流定义在<code>java.io</code>包下 </p>
+<h2 id="IO流分类"><a href="#IO流分类" class="headerlink" title="IO流分类"></a>IO流分类</h2><p>输入输出流定义在<code>java.io</code>包下</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924154442455.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924154442455.png"
                       alt="image-20230924154442455"
                 ></p>
 <p>可以从不同角度进行划分</p>
@@ -349,7 +355,7 @@
 <li>按照功能划分 可以分为节点流和处理流</li>
 </ul>
 <blockquote>
-<p>  字节流和字符流</p>
+<p>字节流和字符流</p>
 <ul>
 <li>字节流处理数据是以0和1表示的最底层数据表示形式 按照字节(1Byte&#x2F;8bit)读取</li>
 <li>字符流 按照字符(2字节) 依次读取</li>
@@ -378,7 +384,7 @@
 <p>  后文会着重讲述四种抽象流类型</p>
 </blockquote>
 <blockquote>
-<p>  节点流和处理流</p>
+<p>节点流和处理流</p>
 <ul>
 <li>节点流是程序直接读取或者写入数据源的数据 File是节点流的代表</li>
 <li>处理流是包在其他流上的流</li>
@@ -464,19 +470,20 @@
 </tr>
 </tbody></table>
 </blockquote>
-<h2 id="InputStream输入流"><a href="#InputStream输入流" class="headerlink" title="InputStream输入流"></a>InputStream输入流</h2><p>InputStream是字节形式的输入流</p>
+<h2 id="节点流"><a href="#节点流" class="headerlink" title="节点流"></a>节点流</h2><p>节点流用于文件的输入&#x2F;输出 与文件直接相关</p>
+<h3 id="InputStream输入流"><a href="#InputStream输入流" class="headerlink" title="InputStream输入流"></a>InputStream输入流</h3><p>InputStream是字节形式的输入流</p>
 <p>下图深色为节点流 浅色为处理流 下同</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165051327.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165051327.png"
                       alt="image-20230924165051327"
                 ></p>
 <p>InputStream有如下方法</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165216495.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165216495.png"
                       alt="image-20230924165216495"
                 ></p>
 <p>创建文本test.txt文件 写入内容并保存</p>
@@ -489,22 +496,22 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005165552829.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005165552829.png"
                       alt="image-20231005165552829"
                 ></p>
-<p>因为英文字符使用一个字节 中文字符的表示使用了两个字节 而FileInputStream是依次读取每一个字节 导致中文字符被拆分成两个字节进行读取 故显示内容有乱码问题</p>
-<h2 id="OutputStream输出流"><a href="#OutputStream输出流" class="headerlink" title="OutputStream输出流"></a>OutputStream输出流</h2><p>OutputStream是字节形式的输出流</p>
+<p>因为英文字符使用一个字节 中文字符的表示使用了两个字节 而FileInputStream是依次读取每一个字节 导致中文字符被拆分成两个字节进行读取<br>故显示内容有乱码问题</p>
+<h3 id="OutputStream输出流"><a href="#OutputStream输出流" class="headerlink" title="OutputStream输出流"></a>OutputStream输出流</h3><p>OutputStream是字节形式的输出流</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165118770.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165118770.png"
                       alt="image-20230924165118770"
                 ></p>
 <p>OutputStream有如下方法</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005170003970.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005170003970.png"
                       alt="image-20231005170003970"
                 ></p>
 <p>创建文件out.txt</p>
@@ -515,22 +522,22 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005171139311.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005171139311.png"
                       alt="image-20231005171139311"
                 ></p>
 <p>如果将读取的乱码数据写入新文件 则结果还是乱码</p>
-<h2 id="Reader流"><a href="#Reader流" class="headerlink" title="Reader流"></a>Reader流</h2><p>Reader是字符形式的输入流</p>
+<h3 id="Reader流"><a href="#Reader流" class="headerlink" title="Reader流"></a>Reader流</h3><p>Reader是字符形式的输入流</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165130207.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165130207.png"
                       alt="image-20230924165130207"
                 ></p>
 <p>Reader有如下方法</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172712990.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172712990.png"
                       alt="image-20231005172712990"
                 ></p>
 <p>Reader流和InputStream类似 但Reader一次读取两个字节 (所以中文也不会出现乱码的情况)</p>
@@ -541,21 +548,21 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172249394.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172249394.png"
                       alt="image-20231005172249394"
                 ></p>
-<h2 id="Writer流"><a href="#Writer流" class="headerlink" title="Writer流"></a>Writer流</h2><p>Writer是字符形式的输出流</p>
+<h3 id="Writer流"><a href="#Writer流" class="headerlink" title="Writer流"></a>Writer流</h3><p>Writer是字符形式的输出流</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165143326.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20230924165143326.png"
                       alt="image-20230924165143326"
                 ></p>
 <p>Writer流有如下方法</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172904161.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172904161.png"
                       alt="image-20231005172904161"
                 ></p>
 <p>Writer和OutputStream类似 这里重写OutputStream的例子</p>
@@ -565,10 +572,10 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172839754.png"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231005172839754.png"
                       alt="image-20231005172839754"
                 ></p>
-<h2 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h2><p>处理流为在节点流上进行处理的流</p>
+<h2 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h2><p>处理流为在节点流上进行处理的流 和文件间接相关</p>
 <h3 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h3><p>缓冲流好比”套接”在相应节点流上 对读写数据提供缓冲 功能 提高读写效率</p>
 <p>Java提供了如下接口 可以用于构建缓冲流</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader(Reader in);</span><br><span class="line">BufferedReader(Reader in,<span class="type">int</span> sz); <span class="comment">//sz 为自定义缓冲区的大小 BufferedWriter(Writer out)</span></span><br><span class="line">BufferedWriter(Writer out,<span class="type">int</span> sz);</span><br><span class="line">BufferedInputStream(InputStream in);</span><br><span class="line">BufferedInputStream(InputStream in,<span class="type">int</span> size);</span><br><span class="line">BufferedOutputStream(InputStream in) BufferedOutputStream(InputStream in,<span class="type">int</span> size);</span><br></pre></td></tr></table></figure></div>
@@ -576,40 +583,89 @@
 <p>对于缓冲流</p>
 <ul>
 <li>支持对应的父类的mark和reset方法<ul>
-<li>保证mark有效的情况下限制读取的字符数 当读取字符达到或超过此限制时 尝试重置流会失败 当限制数值大于输入buffer的默认大小时 将会动态分配一个容量不小于限制数值的buffer  慎用大数值</li>
+<li>保证mark有效的情况下限制读取的字符数 当读取字符达到或超过此限制时 尝试重置流会失败 当限制数值大于输入buffer的默认大小时<br>将会动态分配一个容量不小于限制数值的buffer 慎用大数值</li>
 <li>调用reset方法时 将回到被定位的位置 再次遍历</li>
 </ul>
 </li>
-<li>BufferedReader提供了readLine方法用于读取一行字符串</li>
-<li>BufferedWriter提供了newLine用于写入一个行分隔符</li>
+<li>BufferedReader提供了readLine方法用于读取一行字符串 BufferedWriter提供了newLine用于写入一个行分隔符</li>
 <li>对于输出的缓冲流 写出的数据会现在内存中缓存 使用flush方法将会使内存中的数据立刻写出</li>
 </ul>
 <p>缓冲流设置了一个桶 将缓存数据存储到该桶中 再写到磁盘 比起直接写入磁盘的方案 可以有效减少磁盘IO的次数 利于保护磁盘</p>
 <p>mark()和reset()的用法</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BufferedInputStream</span> <span class="variable">bufferedInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;/path/to/file&quot;</span>));</span><br><span class="line">bufferedInputStream.mark(<span class="number">10</span>); <span class="comment">// 在第十个字符处设置一个标记</span></span><br><span class="line"><span class="comment">// ... 其他代码</span></span><br><span class="line">bufferedInputStream.reset(); <span class="comment">// 回到标记处</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BufferedInputStream</span> <span class="variable">bufferedInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;/path/to/file&quot;</span>));</span><br><span class="line">bufferedInputStream.mark(<span class="number">10</span>); <span class="comment">// 在第十个字符处设置一个标记</span></span><br><span class="line"><span class="comment">// ... 其他代码</span></span><br><span class="line">bufferedInputStream.reset(); <span class="comment">// 流 回到标记处</span></span><br></pre></td></tr></table></figure></div>
 
-
-
-
-
+<p>图解Writer和BufferedWriter的区别</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006192334035.png"
+                      alt="image-20231006192334035"
+                ></p>
+<p>Reader和BufferedReader区别 与上述类似</p>
 <h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><p>InputStreamReader 和 OutputStreamWriter 用于字节数据到字符数据之间的转换</p>
 <p>分别与InputStream和OutputStream进行”套接”</p>
 <p>转换流在构造时可以指定编码集合</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">InputStream</span> <span class="variable">inputStreamReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in, <span class="string">&quot;ISO8859-1&quot;</span>); <span class="comment">// 设定读取编码格式</span></span><br></pre></td></tr></table></figure></div>
 
 <p>转换流是常用的处理流 可以将字节流转换为字符流 有InputStreamReader和OutputStreamWriter两种</p>
-<p>可以将InputStream(字节流)转换成Reader(字符流) 或者将OutputStream(字节流)转换为Writer(字节流)</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">OutputStreamWriter</span> <span class="variable">osw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;D:/java/char.txt&quot;</span>, <span class="literal">true</span>), <span class="string">&quot;ISO8859_1&quot;</span>); <span class="comment">// 设置为true表示追加在文件末 否则会替换原有文件 同时指定字符集编码</span></span><br><span class="line">osw.write(<span class="string">&quot;MircosoftsunIBMOracleApplet&quot;</span>); <span class="comment">// 把字符串写入到指定的文件</span></span><br><span class="line">System.out.println(osw.getEncoding());<span class="comment">// 使用getEncoding()方法取得 当前系统的默认字符编码</span></span><br><span class="line">osw.close(); <span class="comment">// 关闭流式对象</span></span><br></pre></td></tr></table></figure></div>
+<p>可以将InputStream(字节流)转换成Reader(字符流) 或者 将OutputStream(字节流)转换为Writer(字节流)</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">OutputStreamWriter</span> <span class="variable">osw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;D:/java/char.txt&quot;</span>, <span class="literal">true</span>), <span class="string">&quot;ISO8859_1&quot;</span>); <span class="comment">// 设置为true表示追加在文件末 否则会替换原有文件 同时指定字符集编码</span></span><br><span class="line">osw.write(<span class="string">&quot;MircosoftsunIBMOracleApplet&quot;</span>); <span class="comment">// 把字符串写入到指定的文件 将字符转成字节写入</span></span><br><span class="line">System.out.println(osw.getEncoding()); <span class="comment">// 使用getEncoding()方法取得当前系统的默认字符编码</span></span><br><span class="line">osw.close(); <span class="comment">// 关闭流式对象</span></span><br></pre></td></tr></table></figure></div>
 
+<p>图解OutputStreamWriter转换流过程</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006192743704.png"
+                      alt="image-20231006192743704"
+                ></p>
+<p>同样 InputStreamReader的输入过程也类似</p>
+<h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><p>DataInputStream 和 DataOutputStream 提供了可以存取与机器无关的Java原始类型数据(int, double等)的方法</p>
+<p>DataInputStream 和 DataOutputStream 属于处理流 (套接在节点流上) 继承自InputStream和OutputStream</p>
+<p>写入数据后再读取</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">ByteArrayOutputStream</span> <span class="variable">baos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>(); <span class="comment">// 调用构造方法时 会在内存里面创建一个ByteArray字节数组</span></span><br><span class="line">    <span class="type">DataOutputStream</span> <span class="variable">dos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DataOutputStream</span>(baos); <span class="comment">// 在输出流的外面套上一层数据流 用来处理int，double类型的数据</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        dos.writeDouble(Math.random()); <span class="comment">// 把产生的随机数直接写入到字节数组ByteArray中</span></span><br><span class="line">        dos.writeBoolean(<span class="literal">true</span>); <span class="comment">// 写入布尔类型的数据 在内存中布尔类型就只占一个字节</span></span><br><span class="line">        <span class="type">ByteArrayInputStream</span> <span class="variable">bais</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayInputStream</span>(baos.toByteArray());</span><br><span class="line">        System.out.println(bais.available());</span><br><span class="line">        <span class="type">DataInputStream</span> <span class="variable">dis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DataInputStream</span>(bais);</span><br><span class="line">        System.out.println(dis.readDouble()); <span class="comment">// 先写进去的就先读出来，调用readDouble()方法读取出写入的随机数</span></span><br><span class="line">        System.out.println(dis.readBoolean()); <span class="comment">// 后写进去的就后读出来 读取顺序不能更改 否则会打印出不正确的结果</span></span><br><span class="line">        dos.close();</span><br><span class="line">        bais.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
+<p>InputStream 和 OutputStream 不会对内容进行判断 读取不会区分不同的数据类型</p>
+<p>DataInputStream 和 DataOutputStream 会对内容进行判断 区分不同的数据类型</p>
+<h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><p>PrintWriter 和 PrintStream 都属于输出流 都提供了重载的print方法</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006195528449.png"
+                      alt="image-20231006195528449"
+                ></p>
+<p>PrintWriter 和 PrintStream 分别针对字符和字节</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006194723978.png"
+                      alt="image-20231006194723978"
+                ></p>
+<p>提供了如下方法</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PrintWriter(Writer out);</span><br><span class="line">PrintWriter(Writer out，<span class="type">boolean</span> autoFlush);</span><br><span class="line">PrintWriter(OutputStream out); </span><br><span class="line">PrintWriter(OutputStream out，<span class="type">boolean</span> autoFlush); </span><br><span class="line">PrintStream(OutputStream out); </span><br><span class="line">PrintStream(OutputStream out，<span class="type">boolean</span> autoFlush);</span><br></pre></td></tr></table></figure></div>
 
+<p>可以设置具体的PrintStream为系统的输出</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setOut(<span class="keyword">new</span> <span class="title class_">PrintStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;/path/to/file&quot;</span>)));</span><br></pre></td></tr></table></figure></div>
 
+<p>设置后 调用<code>System.out.print</code> 则直接会打印到对应的文件中 (默认为输出到控制台)</p>
+<p>图解传统方式和打印流的区别</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006201247429.png"
+                      alt="image-20231006201247429"
+                ></p>
+<h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><p>用于直接将Object 写入或读出</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="comment">// 新建写入的目标文件的流式对象</span></span><br><span class="line">    <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;src/IO/t.txt&quot;</span>);</span><br><span class="line">    <span class="comment">// 创建对象流(处理流) 包裹文件输出流(节点流)</span></span><br><span class="line">    <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(fos);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写入数据</span></span><br><span class="line">    oos.writeInt(<span class="number">12345</span>);</span><br><span class="line">    oos.writeObject(<span class="string">&quot;Today&quot;</span>);</span><br><span class="line">    oos.writeObject(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭流</span></span><br><span class="line">    oos.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
+<p>可以将内容(对象) 写入到文件</p>
+<p>其他可以关注到 <code>transient</code> <code>serializable</code> <code>externaliazble</code> 关键字</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023-09-24/JavaSE-IO%E6%B5%81%E5%AD%A6%E4%B9%A0/image-20231006212119638.png"
+                      alt="image-20231006212119638"
+                ></p>
 
-
-
-
-<h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
         </div>
 
         
@@ -621,7 +677,7 @@
         <li><strong>创建于:</strong> 2023-09-24 15:07:35</li>
         
             <li>
-                <strong>更新于:</strong> 2023-10-05 22:22:20
+                <strong>更新于:</strong> 2023-10-06 21:36:59
             </li>
         
         <li>
@@ -699,7 +755,7 @@
     <div class="post-toc">
         <div class="toc-title">目录</div>
         <div class="page-title">JavaSE-IO流学习</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFIO%E6%B5%81"><span class="nav-number">1.</span> <span class="nav-text">什么是IO流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E6%B5%81%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">IO流分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InputStream%E8%BE%93%E5%85%A5%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text">InputStream输入流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OutputStream%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-number">4.</span> <span class="nav-text">OutputStream输出流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reader%E6%B5%81"><span class="nav-number">5.</span> <span class="nav-text">Reader流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Writer%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">Writer流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%B5%81"><span class="nav-number">7.</span> <span class="nav-text">处理流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E6%B5%81"><span class="nav-number">7.1.</span> <span class="nav-text">缓冲流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="nav-number">7.2.</span> <span class="nav-text">转换流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">7.3.</span> <span class="nav-text">数据流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E6%B5%81"><span class="nav-number">7.4.</span> <span class="nav-text">打印流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E6%B5%81"><span class="nav-number">7.5.</span> <span class="nav-text">对象流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFIO%E6%B5%81"><span class="nav-number">1.</span> <span class="nav-text">什么是IO流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E6%B5%81%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">IO流分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text">节点流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#InputStream%E8%BE%93%E5%85%A5%E6%B5%81"><span class="nav-number">3.1.</span> <span class="nav-text">InputStream输入流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OutputStream%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-number">3.2.</span> <span class="nav-text">OutputStream输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reader%E6%B5%81"><span class="nav-number">3.3.</span> <span class="nav-text">Reader流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Writer%E6%B5%81"><span class="nav-number">3.4.</span> <span class="nav-text">Writer流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%B5%81"><span class="nav-number">4.</span> <span class="nav-text">处理流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E6%B5%81"><span class="nav-number">4.1.</span> <span class="nav-text">缓冲流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="nav-number">4.2.</span> <span class="nav-text">转换流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">4.3.</span> <span class="nav-text">数据流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E6%B5%81"><span class="nav-number">4.4.</span> <span class="nav-text">打印流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E6%B5%81"><span class="nav-number">4.5.</span> <span class="nav-text">对象流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol>
 
     </div>
 </div>
